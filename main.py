@@ -5,12 +5,12 @@ import pandas as pd
 
 hide_streamlit_style = """
 <style>
-iframe[title="streamlitApp"] {
-    display: none;
+a[href="https://streamlit.io/cloud"] {
+    display: none !important;
 }
 
-div[data-testid="stToolbar"] {
-    display: none;
+div._profileContainer_gzau3_53 {
+    display: none !important;
 }
 
 #MainMenu {
@@ -27,6 +27,7 @@ header {
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 
 
 with open("students.json", "r", encoding="utf-8") as f:
