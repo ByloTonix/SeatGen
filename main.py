@@ -3,21 +3,17 @@ import plotly.graph_objects as go
 import json
 import pandas as pd
 
-# Загрузка данных
 with open("students.json", "r", encoding="utf-8") as f:
     students_data = json.load(f)
 
 with open("room_layouts.json", "r", encoding="utf-8") as f:
     room_layouts = json.load(f)
 
-# Получение списка всех кабинетов
 rooms = sorted(set(s["room"] for s in students_data))
 
-# Настройка темы
 streamlit_theme = st.get_option("theme.base")
 plotly_template = "plotly_dark" if streamlit_theme == "dark" else "plotly"
 
-# Функция для отрисовки плана комнаты
 def draw_room_layout(fig, room_data, taken_seats, room_name):
     if "top" in room_data:
         top_rows = room_data["top"]["rows"]
