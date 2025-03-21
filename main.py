@@ -3,6 +3,17 @@ import plotly.graph_objects as go
 import json
 import pandas as pd
 
+
+# Remove Streamlit buttons and "made by Streamlit" text from the webpage
+hide_streamlit_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 with open("students.json", "r", encoding="utf-8") as f:
     students_data = json.load(f)
 
